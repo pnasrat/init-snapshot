@@ -22,3 +22,11 @@ macro_rules! boxed_on_debug {
         $x.boxed()
     };
 }
+
+#[macro_export]
+#[cfg(not(debug_assertions))]
+macro_rules! boxed_on_debug {
+    ($x:expr) => {
+        $x
+    };
+}
